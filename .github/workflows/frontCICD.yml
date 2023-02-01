@@ -41,6 +41,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker rm docker-frontend-backend-db_webapp_1"
       - 
         name: Start Docker container
-        run: |
-          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "cd /opt/docker-frontend-backend-db docker-compose up -d"
+        uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: "./opt/docker-frontend-backend-db/docker-compose.yml"
       
