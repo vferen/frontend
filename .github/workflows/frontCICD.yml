@@ -1,4 +1,4 @@
-name: frontCI
+name: frontCICD
 
 on:
   
@@ -29,3 +29,17 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/front:latest
+      -    
+        name: Configure SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - 
+        name: Stop and remove Docker container
+        run: |
+          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker stop docker-frontend-backend-db_webapp_1"
+          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker rm docker-frontend-backend-db_webapp_1"
+      - 
+        name: Start Docker container
+        run: |
+          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker run --name docker-frontend-backend-db_webapp_1 -d vferen/frontend:latest"
