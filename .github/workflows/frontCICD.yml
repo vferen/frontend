@@ -40,6 +40,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker stop docker-frontend-backend-db_webapp_1"
           ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker rm docker-frontend-backend-db_webapp_1"
       - 
-        name: Start containers
-        run: docker-compose -f "docker-compose.yml" up -d --build
+        name: run docker-compose
+        uses: sudo-bot/action-docker-compose@latest
       
