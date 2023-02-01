@@ -43,5 +43,5 @@ jobs:
         name: Start Docker container
         uses: isbang/compose-action@v1.4.1
         with:
-          compose-file: "./opt/docker-frontend-backend-db/docker-compose.yml"
+          compose-file: "/opt/docker-frontend-backend-db/docker-compose.yml"
       
