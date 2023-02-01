@@ -42,4 +42,6 @@ jobs:
       - 
         name: Start Docker container
         run: |
-          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker run --name docker-frontend-backend-db_webapp_1 -d vferen/frontend:latest"
+#          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker run --name docker-frontend-backend-db_webapp_1 -d vferen/frontend:latest"
+          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "cd /opt/docker-frontend-backend-db"
+          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker-compose up -d"
