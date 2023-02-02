@@ -42,4 +42,4 @@ jobs:
       - 
         name: Start Docker container
         run: |
-          ssh -o StrictHostKeyChecking=no root@159.89.110.127 "docker run --name docker-frontend-backend-db_webapp_1 -d -p 2000:3000 vferen/front:latest"
+          ssh -o StrictHostKeyChecking=no root@79.108.158.78 "docker run --name docker-frontend-backend-db_webapp_1 -d -p 2000:3000 vferen/front:latest"
